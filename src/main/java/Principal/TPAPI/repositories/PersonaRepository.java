@@ -12,18 +12,20 @@ import java.util.List;
 @Repository
 public interface PersonaRepository extends BaseRepository<Persona, Long> {
 
-    //Anotacion Metodo de Query
-    List<Persona> findByNombreContainingOrApellidoContaining(String nombre, String apellido);
-
     boolean existsByDni(int dni);
+
+    //SIN PAGINACION
+    //Anotacion Metodo de Query
+
+    List<Persona> findByNombreContainingOrApellidoContaining(String nombre, String apellido);
 
     //Anotacion JPQL parametros indexados
     @Query(value = "SELECT p FROM Persona p WHERE p.nombre LIKE %?1% OR p.apellido LIKE %?1%")
-    List<Persona> search(String filtro);
+    List<Persona> searchIndex(String filtro);
 
     //Anotacion JPQL parametros nombrados
     @Query(value = "SELECT p FROM Persona p WHERE p.nombre LIKE %:filtro% OR p.apellido LIKE %:filtro%")
-    List<Persona> search2(@Param("filtro") String filtro);
+    List<Persona> searchNamed(@Param("filtro") String filtro);
 
     //Anotacion JPQL conn Query Nativo
     @Query(
@@ -39,11 +41,11 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
 
     //Anotacion JPQL parametros indexados
     @Query(value = "SELECT p FROM Persona p WHERE p.nombre LIKE %?1% OR p.apellido LIKE %?1%")
-    Page<Persona> search(String filtro, Pageable pageable);
+    Page<Persona> searchIndexPaged(String filtro, Pageable pageable);
 
     //Anotacion JPQL parametros nombrados
     @Query(value = "SELECT p FROM Persona p WHERE p.nombre LIKE %:filtro% OR p.apellido LIKE %:filtro%")
-    Page<Persona> search2(@Param("filtro") String filtro, Pageable pageable);
+    Page<Persona> searchNamedPaged(@Param("filtro") String filtro, Pageable pageable);
 
     //Anotacion JPQL conn Query Nativo
     @Query(
@@ -51,7 +53,6 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
             countQuery = "SELECT count(*) FROM persona",
             nativeQuery = true
     )
-    //Page<Persona> searchNativo(String filtro);
-    Page<Persona> searchNativo(String filtro, Pageable pageable);
+    Page<Persona> searchNativoPaged(@Param("filtro")String filtro, Pageable pageable);
 
 }
