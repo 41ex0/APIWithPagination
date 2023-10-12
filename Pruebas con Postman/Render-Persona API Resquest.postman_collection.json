@@ -1,0 +1,623 @@
+{
+	"info": {
+		"_postman_id": "4b59cfc9-3b80-4b55-a4e6-cacf81284131",
+		"name": "Persona API Resquest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30268333"
+	},
+	"item": [
+		{
+			"name": "Personas",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"nombre\": \"Paula\",\n    \"apellido\": \"Fernandez\",\n    \"dni\": 40000001,\n    \"domicilio\":{\n        \"calle\": \"callefalsa\",\n        \"numero\": 123,\n        \"localidad\": {\n            \"id\": 1,\n            \"denominacion\": \"Mendoza\"\n        }\n    },\n    \"libros\": [\n        {\n            \"id\": 1,\n            \"titulo\": \"Ficciones\",\n            \"fecha\": 1944,\n            \"genero\": \"Literatura fantástica\",\n            \"paginas\": 224,\n            \"autores\": [\n                {\n                    \"id\": 1,\n                    \"nombre\": \"Jorge Luis\",\n                    \"apellido\": \"Borges\",\n                    \"biografia\": \"Jorge Francisco Isidoro Luis Borges fue un escritor, poeta, ensayista y traductor argentino, extensamente considerado una figura clave tanto para la literatura en habla hispana como para la literatura universal.​​\"\n                }\n            ]\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"domicilio\":{\n        \"localidad\": {\n            \"id\": 1\n        }\n    },\n    \"libros\": [\n        {\n            \"id\":2,\n            \"autores\": [\n                {\n                    \"id\": 2\n                }\n            ]\n        },\n        {\n            \"id\":1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas/2",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search paged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas/paged?filtro=Paula&page=0&size=1&sort=id,desc",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"paged"
+							],
+							"query": [
+								{
+									"key": "filtro",
+									"value": "Paula"
+								},
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "id,desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all paged",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/personas/paged?page=0&size=5&sort=id,asc",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"personas",
+								"paged"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "id,asc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autores",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/autores",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/autores/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"autores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Jorge Luis\",\n    \"apellido\": \"Borges\",\n    \"biografia\": \"Jorge Francisco Isidoro Luis Borges fue un escritor, poeta, ensayista y traductor argentino, extensamente considerado una figura clave tanto para la literatura en habla hispana como para la literatura universal.​​\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/autores",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"autores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/autores/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"autores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/autores/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"autores",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Localidades",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/localidades",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"localidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/localidades/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"localidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"denominacion\": \"Mendoza\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/localidades",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"localidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/localidades/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"localidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/localidades/1",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"localidades",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Libros",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/libros",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"libros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get one",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/libros/2",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"libros",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulo\": \"Ficciones\",\n    \"fecha\": 1944,\n    \"genero\": \"Literatura fantástica\",\n    \"paginas\": 224,\n    \"autores\": [\n        {\n            \"id\": 1\n    }\n   ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/libros",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"libros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/libros/",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"libros",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apiwithpagination.onrender.com/api/v1/libros/5",
+							"protocol": "https",
+							"host": [
+								"apiwithpagination",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"libros",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
